@@ -137,8 +137,8 @@ export default function PostLayout({
               />
             </div>
 
-            <div className="absolute top-0 left-0 w-full h-full p-8 flex flex-col justify-end">
-              <p className="text-gray-300 text-lg md:text-xl font-medium mb-4">
+            <div className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent">
+              <p className="text-gray-300 text-lg md:text-xl font-medium mb-2">
                 {new Date(date).toLocaleDateString(undefined, postDateTemplate)}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -150,23 +150,22 @@ export default function PostLayout({
           </div>
           <ProgressBar />
         </div>
-        <section className="lg:grid lg:grid-cols-[1fr,300px] lg:gap-6">
+        <section className="lg:flex lg:gap-6">
           <article className="mdx prose mx-auto w-full transition-colors dark:prose-invert">
             <div className="prose break-words lg:prose-lg dark:prose-dark max-w-none py-4">
               {children}
             </div>
           </article>
-          <aside className="py-4">
+          <aside className="py-4 lg:w-1/4">
             <div className="sticky top-24">
               <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
-              <div className="flex items-center justify-center py-6"></div>
             </div>
           </aside>
         </section>
       </section>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <ReviewForm onSubmit={handleNewReview} />
-    </div>
+      </div>
       <div
         id="cusdis_thread"
         data-host={process.env.NEXT_PUBLIC_CUSDIS_HOST}
@@ -214,9 +213,7 @@ export default function PostLayout({
           ))}
         </div>
       </div>
-
       {/* Star Rating System */}
-     
     </main>
   )
 }

@@ -13,7 +13,9 @@ const Article: React.FC<ArticleProps> = ({ slug, date, title, summary, tags, ima
   const src = Array.isArray(images) ? images[0] : images;
 
   return (
-    <article className={`rounded-lg shadow-lg overflow-hidden ${className}`}>
+    <article
+      className={`rounded-lg shadow-lg overflow-hidden ${className} border border-gray-200 dark:border-gray-700`}
+    >
       <Link href={`/blog/${slug}`}>
         <div className="relative">
           {src ? (
@@ -29,24 +31,22 @@ const Article: React.FC<ArticleProps> = ({ slug, date, title, summary, tags, ima
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">{title}</h2>
                 <div className="flex flex-wrap items-center text-sm text-gray-300">
                   {tags.map((tag) => (
-                    <Tag key={tag} text={`${tag}`} maintitle={''} title={''} description={''}  />
+                    <Tag key={tag} text={`${tag}`} maintitle={''} title={''} description={''} />
                   ))}
-               
                   <time dateTime={date} className="ml-2">{formatDate(date)}</time>
                 </div>
               </div>
             </>
           ) : (
-            <div className="p-4 sm:p-6 md:p-8 bg-white">
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{title}</h2>
-              <div className="flex flex-wrap items-center text-sm text-gray-600">
+            <div className="p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-800">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2">{title}</h2>
+              <div className="flex flex-wrap items-center text-sm text-gray-600 dark:text-gray-400">
                 {tags && tags.map((tag) => (
                   <Tag key={tag} text={`${tag}`} maintitle={''} title={''} description={''} />
                 ))}
-               
                 <time dateTime={date} className="ml-2">{formatDate(date)}</time>
               </div>
-              <p className="mt-4">{summary}</p>
+              <p className="mt-4 text-gray-700 dark:text-gray-300">{summary}</p>
             </div>
           )}
         </div>
@@ -56,4 +56,3 @@ const Article: React.FC<ArticleProps> = ({ slug, date, title, summary, tags, ima
 };
 
 export default Article;
-

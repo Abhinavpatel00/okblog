@@ -5,11 +5,7 @@ import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-// import Comment from '@/components/Comment'
-// import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Image from '@/components/Image'
-// import LikeButton from '@/components/LikeButton2'
-// import DislikeButton from '@/components/DislikeButton'
 import ProgressBar from '@/components/ProgressBar'
 import TableOfContents, { HeadingScrollSpy } from '@/components/TableOfContents'
 import useScrollSpy from '@/components/hooks/useScrollspy'
@@ -123,33 +119,40 @@ export default function PostLayout({
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} />
       <section className="bg-white dark:bg-gray-900 pb-8 md:pb-12">
         <PageTitle>{title}</PageTitle>
-        <div className="relative">
-          <div className="aspect-w-16 aspect-h-9 rounded-md overflow-hidden">
-            <div className="max-w-[720px] mx-auto">
-              <Image
-                src={src}
-                alt={title}
-                width={1280}
-                height={720}
-                objectFit="cover"
-                objectPosition="center"
-                className="transform transition-transform hover:scale-105"
-              />
-            </div>
 
-            <div className="absolute top-0 left-0 w-full h-full p-4 flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent">
-              <p className="text-gray-300 text-lg md:text-xl font-medium mb-2">
-                {new Date(date).toLocaleDateString(undefined, postDateTemplate)}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                  <Tag key={tag} text={tag} maintitle={''} title={''} description={''} />
-                ))}
-              </div>
-            </div>
-          </div>
-          <ProgressBar />
+        {/* Adding margin-top to provide space between heading and image */}
+        <div className="relative flex justify-center mt-6">  
+  <div className="w-full max-w-4xl mx-auto flex justify-center">  {/* Center the image */}
+    <div className="overflow-hidden rounded-lg" style={{ maxWidth: '90%' }}> {/* Set max-width to reduce box size */}
+      <Image
+        src={src}
+        alt={title}
+        width={340}  
+        height={340}  
+        objectFit="cover"
+        objectPosition="center"
+        className="rounded-lg"
+      />
+      <div
+  className="absolute top-0 left-8 right-8 h-full p-4 flex flex-col justify-end bg-gradient-to-t from-zinc-950 via-transparent to-transparent rounded-xl"
+  style={{ width: 'auto'}}
+>
+        <p className="text-gray-300 text-lg md:text-xl font-medium mb-2">
+          {new Date(date).toLocaleDateString(undefined, postDateTemplate)}
+        </p>
+        <div className="flex flex-wrap justify-center gap-2">
+          {tags.map((tag) => (
+            <Tag key={tag} text={tag} maintitle={''} title={''} description={''} />
+          ))}
         </div>
+      </div>
+    </div>
+  </div>
+  <ProgressBar />
+</div>
+
+
+
         <section className="lg:flex lg:gap-6">
           <article className="mdx prose mx-auto w-full transition-colors dark:prose-invert">
             <div className="prose break-words lg:prose-lg dark:prose-dark max-w-none py-4">
@@ -213,7 +216,9 @@ export default function PostLayout({
           ))}
         </div>
       </div>
-      {/* Star Rating System */}
     </main>
   )
 }
+
+
+

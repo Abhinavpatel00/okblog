@@ -122,20 +122,20 @@ export default function PostLayout({
 
         {/* Adding margin-top to provide space between heading and image */}
         <div className="relative flex justify-center mt-6">  
-  <div className="w-full max-w-4xl mx-auto flex justify-center">  {/* Center the image */}
-    <div className="overflow-hidden rounded-lg" style={{ maxWidth: '90%' }}> {/* Set max-width to reduce box size */}
+  <div className="w-full max-w-4xl mx-auto flex justify-center"> 
+    <div className="overflow-hidden rounded-lg" style={{ maxWidth: '90%' }}> 
       <Image
         src={src}
         alt={title}
-        width={340}  
-        height={340}  
+        width={330}  
+        height={330}  
         objectFit="cover"
         objectPosition="center"
         className="rounded-lg"
       />
-      <div
-  className="absolute top-0 left-8 right-8 h-full p-4 flex flex-col justify-end bg-gradient-to-t from-zinc-950 via-transparent to-transparent rounded-xl"
-  style={{ width: 'auto'}}
+   <div
+  className="absolute top-0 left-0 right-2 sm:left-14 sm:right-0 h-full p-4 flex flex-col justify-end bg-gradient-to-t from-zinc-950 via-transparent to-transparent rounded-xl"
+  style={{ width: 'auto' }}
 >
         <p className="text-gray-300 text-lg md:text-xl font-medium mb-2">
           {new Date(date).toLocaleDateString(undefined, postDateTemplate)}
@@ -169,7 +169,7 @@ export default function PostLayout({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <ReviewForm onSubmit={handleNewReview} />
       </div>
-      <div
+      {/* <div
         id="cusdis_thread"
         data-host={process.env.NEXT_PUBLIC_CUSDIS_HOST}
         data-app-id={process.env.NEXT_PUBLIC_CUSDIS_APP_ID}
@@ -178,7 +178,7 @@ export default function PostLayout({
         data-page-title={title}
       ></div>
 
-      <Script src="/custom-cusdis.js" strategy="afterInteractive" />
+      <Script src="/custom-cusdis.js" strategy="afterInteractive" /> */}
 
       {prev || prev2 || prev3 ? (
         <section className="bg-gray-100 dark:bg-gray-800 py-8">

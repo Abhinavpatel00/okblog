@@ -27,9 +27,9 @@ export default function TOCLink({
       className={clsx(
         'block py-1 px-2 rounded-md transition-all duration-200',
         'font-medium',
-        'focus:outline-none focus-visible:ring-2 ring-[#31da63] shadow-sm',
+        'focus:outline-none focus-visible:ring-2 ring-[#2eb055] shadow-sm',
         activeSection === id
-          ? 'text-black bg-[#31da63] dark:text-#31da63 dark:bg-[#31da63]'
+          ? 'text-black bg-[#2eb055] dark:text-#31da63 dark:bg-[#2eb055]'
           : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
       )}
       style={{ marginLeft: Math.max((level - minLevel) * 16, 0) }}

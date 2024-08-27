@@ -18,6 +18,7 @@ import PageTitle from '@/components/PageTitle'
 import Script from 'next/script'
 import ReviewForm from '@/components/Review'
 import ReviewList from '@/components/reviewlist'
+import SiteCategory from '@/components/SiteCategory';
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -162,6 +163,8 @@ export default function PostLayout({
           <aside className="py-4 lg:w-1/4">
             <div className="sticky top-24">
               <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
+               {/* Site Category Block */}
+              <SiteCategory />
             </div>
           </aside>
         </section>

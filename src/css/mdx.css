@@ -3,12 +3,72 @@
 }
 
 .prose code:not(:where([data-code-type='code-block'])) {
-  @apply rounded-md border px-1 py-1 dark:border-gray-600;
+  border:1px solid #00ff94;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  color: #00ff94;
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(10px); 
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 0.3rem 0; 
+  box-shadow:
+    inset 3px 3px 5px rgba(128, 126, 126, 0.2),
+    3px 3px 5px rgba(0, 0, 0, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.1); 
+  
+}
+
+.dark .prose pre{
+  background:transparent;
+  border:1px solid #5f6160;
+  border-radius:12px;
+}
+.light .prose pre{
+  background:rgba(0, 255, 148,0.12);
+ 
+  border-radius:12px;
+}
+
+.light .prose code {
+  border:2px solid #23a06c;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.96rem;
+  color: #000;
+   
+  backdrop-filter: blur(10px); 
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 0.3rem 0; 
+  box-shadow:
+    inset 3px 3px 5px rgba(47, 199, 60, 0.2),
+    3px 3px 5px rgba(60, 189, 38, 0.1),
+    5px 5px 15px rgba(39, 238, 145, 0.1); 
+  
 }
 
 .prose a {
   text-decoration: none;
+  color: #3fb13f; 
 }
+
+.prose a:hover,
+.prose a:focus {
+  color: #ffffff; 
+}
+
+.dark .prose a {
+  text-decoration: none;
+  color: #186c18;
+}
+
+.dark .prose a:hover,
+.dark .prose a:focus {
+  color: #ffffff; 
+}
+
+
+
 
 .prose > ol > li > :last-child,
 .prose > ul > li > :last-child {
@@ -19,15 +79,61 @@
   margin-top: 0;
 }
 
+.light .prose blockquote {
+  border-style: solid;
+  border-width: 0 0 0 0.25rem;
+  border: 1px solid rgba(72, 216, 33, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #f0fff4;
+  color: #006400; 
+  font-style: italic;
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.dark .prose blockquote {
+  background-color: #292a29; /* Dark green background */
+  color: #00ff94; /* Bright green text */
+  border-radius: 10px;
+  box-shadow: 
+    5px 2px 4px rgba(31, 32, 31, 0.3), /* Subtle darker inner shadow for depth */
+    -3px -2px 4px rgba(87, 143, 87, 0.4); /* Subtle lighter outer shadow for raised effect */
+  padding: 1rem;
+  position: relative;
+  margin: 1.5rem 0;
+  /* border: 1px solid #00ff95ad; */ /* Optional border */
+}
+
+
+
+
 .prose blockquote p:first-of-type::before,
 .prose blockquote p:last-of-type::after {
   content: '';
 }
 
-.prose blockquote {
-  border-style: solid;
-  border-width: 0 0 0 0.25rem;
-  border-image: linear-gradient(to top, #00ff94, #00e0f3, #00c4fd) 1;
+.prose blockquote::before {
+  
+  font-size: 3rem;
+  color: #00ff94;
+  position: absolute;
+  top: -0.5rem;
+  left: -1.5rem;
+}
+
+.prose blockquote::after {
+ 
+  font-size: 3rem;
+  color: #00ff94;
+  position: absolute;
+  bottom: -0.5rem;
+  right: -1.5rem;
+}
+
+.prose blockquote p {
+  margin: 0;
+  padding: 0.5rem;
 }
 
 .prose hr {
@@ -84,6 +190,6 @@
 }
 
 .hash-anchor:after {
-  @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg text-primary-400 dark:text-primary-300;
+  @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg text-lime-300 dark:text-lime-300;
   content: '#';
 }
